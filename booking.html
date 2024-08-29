@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum Ticket Booking</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</head>
+<body class="bg-gray-400">
+    <div class="container mx-auto mt-10 p-5">
+        <!-- Ticket Booking Section -->
+        <div class="bg-gray-100 rounded-lg shadow-lg p-6">
+            <h1 class="text-3xl font-bold text-yellow-800 mb-4">Book Your Tickets</h1>
+            
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-700">Ticket Fare</h2>
+                    <p class="text-lg text-gray-500 mt-2">₹ 50 / Ticket</p>
+                </div>
+                <div>
+                    <label for="numTickets" class="text-lg font-semibold text-gray-700">Number of Tickets</label>
+                    <div class="flex items-center mt-2">
+                        <button class="bg-red-600 text-white px-3 py-1 rounded-l-md" id="decrease">-</button>
+                        <input type="number" id="numTickets" value="1" min="1" class="w-16 text-center border-2 border-black focus:outline-none">
+                        <button class="bg-green-600 text-white px-3 py-1 rounded-r-md" id="increase">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="w-full bg-yellow-800 hover:bg-green-700 text-white font-bold py-3 rounded-lg focus:outline-none focus:shadow-outline" onclick="paymentStart()">
+                Pay ₹ <span id="totalAmount">50</span>
+            </button>
+        </div>
+
+        <!-- Add-On Options -->
+        <div class="bg-gray-100 rounded-lg shadow-lg p-6 mt-10">
+            <h2 class="text-2xl font-bold text-yellow-800 mb-6">Additional Booking Options</h2>
+            
+            <div class="space-y-6">
+                <!-- Food Booking -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">Food Booking</h3>
+                        <p class="text-gray-500 mt-1">Add delicious meals to your visit</p>
+                    </div>
+                    <button class="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-lg focus:outline-none">Book Now</button>
+                </div>
+                
+                <!-- Guide Booking -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">Guide Booking</h3>
+                        <p class="text-gray-500 mt-1">Book a professional guide for an enhanced experience</p>
+                    </div>
+                    <button class="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-lg focus:outline-none">Book Now</button>
+                </div>
+                
+                <!-- Nearby Hotel Booking -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">Nearby Hotel Booking</h3>
+                        <p class="text-gray-500 mt-1">Find and book nearby hotels for your stay</p>
+                    </div>
+                    <button class="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-lg focus:outline-none">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const decreaseButton = document.getElementById('decrease');
+        const increaseButton = document.getElementById('increase');
+        const numTickets = document.getElementById('numTickets');
+        const totalAmount = document.getElementById('totalAmount');
+        const ticketPrice = 50;
+
+        decreaseButton.addEventListener('click', () => {
+            if (numTickets.value > 1) {
+                numTickets.value = parseInt(numTickets.value) - 1;
+                updateTotal();
+            }
+        });
+
+        increaseButton.addEventListener('click', () => {
+            numTickets.value = parseInt(numTickets.value) + 1;
+            updateTotal();
+        });
+
+        numTickets.addEventListener('input', () => {
+            updateTotal();
+        });
+
+        function updateTotal() {
+            totalAmount.textContent = numTickets.value * ticketPrice;
+        }
+
+        const paymentStart = () => {
+            console.log("Payment Started...");
+            console.log(totalAmount.textContent);
+        };
+
+        // $.ajax(
+        //     {
+        //         url:'/user/Order',
+        //         data:JSON.stringify({amount:totalAmount.textContent,info:'order_request'}),
+        //         contentType:'application/json',
+        //         type:'POST',
+        //         dataType:'json',
+        //         success:function(response){
+        //             console.log(response)
+        //         },
+        //         error:function(error){
+        //             console.log(error)
+        //             alert("Something went wrong!! ")
+        //         }
+        //     }
+        // )
+    </script>
+</body>
+</html>

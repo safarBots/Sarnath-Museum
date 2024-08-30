@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-200">
+    <!-- Ticket Booking Section -->
+    <section id="login" class="py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="pacifico-regular text-4xl font-bold text-center mb-8">
+          Login
+        </h2>
+        <div class="flex justify-center">
+          <form id="myForm" action="./index.html" method="POST" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+            <div class="mb-4">
+              <label for="name" class="block text-sm font-medium text-gray-700">Phone Number</label>
+              <input type="number" id="phone" name="phone" class="px-2 mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm" required/>
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+              <input type="email" id="email" name="email" class="px-2 mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm" required/>
+            </div>
+
+            <div class="mb-4">
+              <label for="Password" class="block text-sm font-medium text-gray-700">Password</label>
+              <input type="password" id="pass" name="pass" class="px-2 mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm" required/>
+            </div>
+            <div class="mb-4">
+                <label for="Password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                <input type="password" id="pass" name="pass" class="px-2 mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm" required/>
+              </div>
+            <div class="mt-3 flex justify-center">
+              <button type="submit" class="bg-yellow-500 text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

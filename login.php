@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
         // Password is correct, start a session
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['username'] = $row['username'];
-        header("Location: dashboard.php?login=success");
+        header("Location: log.html?login=success");
         exit();
     } else {
         // Password is incorrect
